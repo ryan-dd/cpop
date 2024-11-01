@@ -109,7 +109,7 @@ namespace cpop::detail {
               } else {
                   if (std::holds_alternative<Node>(iter->content)) {
                       const auto& node = std::get<Node>(iter->content);
-                      auto converted = TypeConverter::tryConvert<OptionalType>(node.value, current_path_);
+                      auto converted = TypeConverter::tryConvert<OptionalType>(node.value);
                       if (converted) {
                           field.value = std::move(*converted);
                       } else {

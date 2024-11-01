@@ -3,7 +3,7 @@
 #include "cpop/detail/to_string_with_delims.h"
 
 #include <format>
-#include <iostream>
+#include <print>
 #include <string>
 #include <string_view>
 #include <vector>
