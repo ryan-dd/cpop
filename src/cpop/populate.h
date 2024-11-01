@@ -1,5 +1,6 @@
 #pragma once
 
+#include "cpop/params.h"
 #include "cpop/tree.h"
 #include "cpop/detail/concepts.h"
 #include "cpop/detail/populator.h"
@@ -25,7 +26,24 @@ void populateFromTree(T& obj, const Tree& tree) {
         else if constexpr (detail::MultipleType<FieldType>) {
             populator.populateMultiple(field);
         }
+
+        // skip fields that are not params
     });
+}
+
+// Most xml docs have an overall element at the top level.
+// This is a convenience function so that you don't have to manually create a struct for the element
+template<typename T>
+void populateFromTree(T& obj, const Tree& tree, std::string topLevelTag) {
+    struct Wrapper {
+      Param<T> config;
+    };
+
+    Wrapper wrapper{.config = {std::move(topLevelTag)}};
+
+    populateFromTree(wrapper, tree);
+
+    obj = wrapper.config.value;
 }
 
 }
