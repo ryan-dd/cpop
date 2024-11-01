@@ -45,8 +45,6 @@ if(CPOP_DEV_MODE)
   set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for LSP support
 endif()
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # for LSP support
-
 if(CPOP_USE_SANITIZERS)
   if(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
       target_compile_options(cpop INTERFACE $<$<CONFIG:Debug>:-fsanitize=address -fno-omit-frame-pointer -fsanitize=undefined>)
@@ -105,6 +103,6 @@ if(CPOP_ENABLE_INSTALL)
   )
 endif()
 
-# if(CPOP_BUILD_TESTS)
-# endif()
+if(CPOP_BUILD_TESTS)
   add_subdirectory(test)
+endif()
