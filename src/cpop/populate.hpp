@@ -1,12 +1,15 @@
 #pragma once
 
-#include "cpop/params.h"
-#include "cpop/tree.h"
-#include "cpop/detail/concepts.h"
-#include "cpop/detail/populator.h"
+#include "cpop/params.hpp"
+#include "cpop/tree.hpp"
+#include "cpop/detail/concepts.hpp"
+#include "cpop/detail/populator.hpp"
 
 #include <boost/pfr/core.hpp>
+
+#include <string>
 #include <type_traits>
+#include <utility>
 
 namespace cpop
 {
@@ -39,7 +42,7 @@ void populateFromTree(T& obj, const Tree& tree, std::string topLevelTag) {
       Param<T> config;
     };
 
-    Wrapper wrapper{.config = {std::move(topLevelTag)}};
+    Wrapper wrapper{.config = Param<T>{std::move(topLevelTag)}};
 
     populateFromTree(wrapper, tree);
 

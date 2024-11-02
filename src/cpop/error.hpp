@@ -1,6 +1,6 @@
 #pragma once
 
-#include "cpop/detail/to_string_with_delims.h"
+#include "cpop/detail/to_string_with_delims.hpp"
 
 #include <format>
 #include <stdexcept>

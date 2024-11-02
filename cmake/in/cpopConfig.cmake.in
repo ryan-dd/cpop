@@ -1,6 +1,6 @@
 @PACKAGE_INIT@
 
-include(CMakeFindDependencyMacro)
+include(CMakeFindDependencyMacro)
 find_dependency(Boost REQUIRED)
 
 set(CPOP_VERSION "@PROJECT_VERSION@")

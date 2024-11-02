@@ -1,6 +1,6 @@
 #pragma once
 
-#include "cpop/params.h"
+#include "cpop/params.hpp"
 
 #include <concepts>
 #include <string>

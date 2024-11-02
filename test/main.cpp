@@ -1,16 +1,19 @@
+#include "cpop/error.hpp"
+#include "cpop/params.hpp"
+#include "cpop/tree.hpp"
+#include "cpop/populate.hpp"
+#include "cpop/parsers/xml_parser.hpp"
+
 #include <cassert>
 #include <optional>
 #include <print>
 #include <string>
 #include <vector>
 
-#include "cpop/error.h"
-#include "cpop/params.h"
-#include "cpop/tree.h"
-#include "cpop/populate.h"
-#include "cpop/parsers/xml_parser.hpp"
+namespace 
+{
 
-static void cpopTreeParseTest()
+void cpopTreeParseTest()
 {
   try {
     struct Config {
@@ -381,6 +384,7 @@ void cpopXmlParseTest() {
         assert(std::abs(limits.scientific.value - 1.23e-4) < 0.0000001);
     }
 
+
     std::println("\nTest error cases");
     {
         // Missing required field
@@ -457,6 +461,8 @@ void cpopXmlParseTest() {
         assert(config.host.value == "localhost");
         assert(!config.max_connections.value.has_value());  // Should be empty due to invalid value
     }
+}
+
 }
 
 // TODO conver to test framework

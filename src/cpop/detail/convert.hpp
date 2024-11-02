@@ -1,7 +1,7 @@
 #pragma once
 
-#include "cpop/error.h"
-#include "cpop/detail/logger.h"
+#include "cpop/error.hpp"
+#include "cpop/detail/logger.hpp"
 
 #include <algorithm>
 #include <cctype>

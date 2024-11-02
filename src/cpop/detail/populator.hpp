@@ -1,10 +1,10 @@
 #pragma once
 
-#include "cpop/detail/convert.h"
-#include "cpop/detail/concepts.h"
-#include "cpop/error.h"
-#include "cpop/tree.h"
-#include "cpop/detail/logger.h"
+#include "cpop/detail/convert.hpp"
+#include "cpop/detail/concepts.hpp"
+#include "cpop/error.hpp"
+#include "cpop/tree.hpp"
+#include "cpop/detail/logger.hpp"
 
 #include <exception>
 #include <string>
@@ -140,7 +140,7 @@ namespace cpop::detail {
               }
 
               if (!std::holds_alternative<std::vector<Element>>(iter->content)) {
-                  Logger::warn("Multiple field found but has wrong type", current_path_);
+                  Logger::warn("Multiple field specified but actual has wrong type", current_path_);
                   popPath();
                   return;
               }

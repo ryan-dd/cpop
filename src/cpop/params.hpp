@@ -13,7 +13,7 @@ namespace cpop
       T value;
       using value_type = T;
 
-      explicit Param(std::string_view key) : key(key) {}
+      explicit Param(std::string key) : key(std::move(key)) {}
   };
 
   template<typename T>
@@ -22,7 +22,7 @@ namespace cpop
       std::optional<T> value;
       using value_type = T;
 
-      explicit OptParam(std::string_view key) : key(key) {}
+      explicit OptParam(std::string key) : key(std::move(key)) {}
   };
 
   template<typename T>
@@ -32,7 +32,7 @@ namespace cpop
       std::vector<T> values;
       using value_type = T;
 
-      Multiple(std::string_view list_key, std::string_view element_key) 
-          : list_key(list_key), element_key(element_key) {}
+      Multiple(std::string list_key, std::string element_key) 
+          : list_key(std::move(list_key)), element_key(std::move(element_key)) {}
   };
 }
